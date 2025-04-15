@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Phân Tích Quảng Cáo Shopee - LanPuPu Boutique</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #ee4d2d 0%, #ff7337 100%);
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            border-bottom: 2px solid #ee4d2d;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #ee4d2d;
+        }
+        .data-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-left: 4px solid #ee4d2d;
+        }
+        .metric-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        .good {
+            color: #10b981;
+        }
+        .warning {
+            color: #f59e0b;
+        }
+        .bad {
+            color: #ef4444;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+        }
+        table th {
+            background-color: #f9fafb;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+        .chart-container {
+            height: 300px;
+            margin: 20px 0;
+        }
+        .recommendation-item {
+            border-left: 4px solid #10b981;
+            padding-left: 16px;
+            margin-bottom: 20px;
+            background-color: #f0fdf4;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+        .problem-item {
+            border-left: 4px solid #ef4444;
+            padding-left: 16px;
+            margin-bottom: 20px;
+            background-color: #fef2f2;
+            padding: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="page-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="text-3xl font-bold mb-2">Báo Cáo Phân Tích Quảng Cáo Shopee</h1>
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-lg">Cửa hàng: <span class="font-bold">LanPuPu_Boutique</span></p>
+                    <p>Mã người bán: 127485119</p>
+                    <p>Khoảng thời gian: 01/01/2025 - 31/03/2025</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm">Ngày tạo báo cáo: 16/04/2025</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tổng quan hiệu suất -->
+        <div class="section">
+            <h2 class="section-title text-2xl font-bold">1. Tổng Quan Hiệu Suất Quảng Cáo</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-700">Tổng số lượt hiển thị</h3>
+                        <i class="fas fa-eye text-blue-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold mt-2">302,464</p>
+                    <p class="text-sm text-gray-500">Lượt hiển thị trên tất cả chiến dịch</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-700">Tổng số lượt click</h3>
+                        <i class="fas fa-mouse-pointer text-yellow-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold mt-2">12,585</p>
+                    <p class="text-sm text-gray-500">Tỷ lệ click trung bình: 4.16%</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-700">Tổng chi phí</h3>
+                        <i class="fas fa-dollar-sign text-green-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold mt-2">7,220,001 VNĐ</p>
+                    <p class="text-sm text-gray-500">Chi phí quảng cáo Q1/2025</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-700">Lượt chuyển đổi</h3>
+                        <i class="fas fa-exchange-alt text-purple-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold mt-2">329</p>
+                    <p class="text-sm text-gray-500">Tỷ lệ chuyển đổi: 2.61%</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-700">Doanh thu (GMV)</h3>
+                        <i class="fas fa-chart-line text-indigo-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold mt-2">94,018,900 VNĐ</p>
+                    <p class="text-sm text-gray-500">Tổng doanh thu từ quảng cáo</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-gray-700">ROAS Trung bình</h3>
+                        <i class="fas fa-percentage text-red-500"></i>
+                    </div>
+                    <p class="text-3xl font-bold mt-2 good">13.02</p>
+                    <p class="text-sm text-gray-500">Lợi nhuận trên chi phí quảng cáo</p>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold mb-4">Phân bổ ngân sách theo loại quảng cáo</h3>
+                <div class="chart-container">
+                    <canvas id="adTypeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- So sánh hiệu suất các chiến dịch -->
+        <div class="section">
+            <h2 class="section-title text-2xl font-bold">2. So Sánh Hiệu Suất Các Chiến Dịch</h2>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full">
+                    <thead>
+                        <tr>
+                            <th>Tên chiến dịch</th>
+                            <th>Trạng thái</th>
+                            <th>Lượt xem</th>
+                            <th>Lượt click</th>
+                            <th>CTR</th>
+                            <th>Chi phí (VNĐ)</th>
+                            <th>Chuyển đổi</th>
+                            <th>ROAS</th>
+                            <th>ACOS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>"[LAN PUPU] Chân váy Len maxi Lông thỏ dáng dài ..."</td>
+                            <td>Đang diễn ra</td>
+                            <td>90,162</td>
+                            <td>4,005</td>
+                            <td>4.44%</td>
+                            <td>2,441,931</td>
+                            <td>271</td>
+                            <td class="good">32.00</td>
+                            <td class="good">3.12%</td>
+                        </tr>
+                        <tr>
+                            <td>"Quảng cáo Shop 02-01-2025"</td>
+                            <td>Đang diễn ra</td>
+                            <td>39,591</td>
+                            <td>5,495</td>
+                            <td>13.88%</td>
+                            <td>1,330,818</td>
+                            <td>25</td>
+                            <td class="good">5.18</td>
+                            <td class="warning">19.30%</td>
+                        </tr>
+                        <tr>
+                            <td>"[LANPUPU QC] Chân váy voan xếp ly đính nơ..."</td>
+                            <td>Đang diễn ra</td>
+                            <td>33,856</td>
+                            <td>469</td>
+                            <td>1.39%</td>
+                            <td>441,836</td>
+                            <td>3</td>
+                            <td class="warning">1.60</td>
+                            <td class="bad">62.67%</td>
+                        </tr>
+                        <tr>
+                            <td>"[QCCC] Áo sơ mi tay dài phối voan tơ..."</td>
+                            <td>Đang diễn ra</td>
+                            <td>32,558</td>
+                            <td>401</td>
+                            <td>1.23%</td>
+                            <td>352,619</td>
+                            <td>0</td>
+                            <td class="bad">0.00</td>
+                            <td class="bad">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>"[LAN PUPU QC] Váy lưới nối bánh 2025..."</td>
+                            <td>Tạm dừng</td>
+                            <td>30,068</td>
+                            <td>459</td>
+                            <td>1.53%</td>
+                            <td>402,880</td>
+                            <td>4</td>
+                            <td class="warning">2.60</td>
+                            <td class="bad">38.48%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Tỷ lệ chuyển đổi theo chiến dịch</h3>
+                    <div class="chart-container">
+                        <canvas id="conversionChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">ROAS theo chiến dịch</h3>
+                    <div class="chart-container">
+                        <canvas id="roasChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phân tích chiến dịch tốt nhất và kém nhất -->
+        <div class="section">
+            <h2 class="section-title text-2xl font-bold">3. Phân Tích Chiến Dịch Hiệu Quả</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="data-card">
+                    <h3 class="text-xl font-bold text-green-600 mb-3">Chiến dịch hiệu quả nhất</h3>
+                    <p class="font-semibold">"[LAN PUPU] Chân váy Len maxi Lông thỏ dáng dài hàng đẹp dầy dặn (65cm,80cm,90cm) C1"</p>
+                    <div class="mt-4 space-y-2">
+                        <p><span class="font-semibold">Lượt xem:</span> 90,162</p>
+                        <p><span class="font-semibold">Lượt click:</span> 4,005 (CTR: 4.44%)</p>
+                        <p><span class="font-semibold">Chuyển đổi:</span> 271 (Tỷ lệ: 6.77%)</p>
+                        <p><span class="font-semibold">Chi phí:</span> 2,441,931 VNĐ</p>
+                        <p><span class="font-semibold">Doanh thu:</span> 78,152,700 VNĐ</p>
+                        <p><span class="font-semibold">ROAS:</span> <span class="good font-bold">32.00</span></p>
+                        <p><span class="font-semibold">ACOS:</span> <span class="good font-bold">3.12%</span></p>
+                    </div>
+                    <div class="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+                        <h4 class="font-semibold text-green-700">Phân tích hiệu quả:</h4>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>Tỷ lệ chuyển đổi cao (6.77%), gấp 2.5 lần trung bình</li>
+                            <li>ROAS rất cao (32.00), cho thấy mỗi đồng chi phí mang lại 32 đồng doanh thu</li>
+                            <li>ACOS thấp (3.12%), chi phí chiếm tỷ lệ nhỏ trong doanh thu</li>
+                            <li>Chiến dịch này nên được ưu tiên và mở rộng ngân sách</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="data-card" style="border-left: 4px solid #ef4444;">
+                    <h3 class="text-xl font-bold text-red-600 mb-3">Chiến dịch kém hiệu quả nhất</h3>
+                    <p class="font-semibold">"[QCCC] Áo sơ mi tay dài phối voan tơ phong cách Pháp Retro thêu hoa Chiffon cao cấp quảng châu CC A33"</p>
+                    <div class="mt-4 space-y-2">
+                        <p><span class="font-semibold">Lượt xem:</span> 32,558</p>
+                        <p><span class="font-semibold">Lượt click:</span> 401 (CTR: 1.23%)</p>
+                        <p><span class="font-semibold">Chuyển đổi:</span> 0 (Tỷ lệ: 0.00%)</p>
+                        <p><span class="font-semibold">Chi phí:</span> 352,619 VNĐ</p>
+                        <p><span class="font-semibold">Doanh thu:</span> 0 VNĐ</p>
+                        <p><span class="font-semibold">ROAS:</span> <span class="bad font-bold">0.00</span></p>
+                        <p><span class="font-semibold">ACOS:</span> <span class="bad font-bold">0.00%</span></p>
+                    </div>
+                    <div class="mt-4 p-3 bg-red-50 rounded-lg border border-red-200">
+                        <h4 class="font-semibold text-red-700">Phân tích vấn đề:</h4>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>Tỷ lệ click (CTR) thấp, chỉ 1.23%</li>
+                            <li>Không phát sinh chuyển đổi dù đã chi 352,619 VNĐ</li>
+                            <li>Sản phẩm có thể không phù hợp với đối tượng tiếp cận</li>
+                            <li>Nên dừng chiến dịch hoặc điều chỉnh lại hoàn toàn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-xl font-semibold mb-4">Phân tích phương thức đấu thầu</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-lg mb-3">Hiệu quả theo phương thức đấu thầu</h4>
+                        <div class="chart-container">
+                            <canvas id="biddingMethodChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <h4 class="font-semibold text-blue-700 mb-2">Nhận xét:</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Chiến dịch sử dụng <strong>Giá thầu Thủ công</strong> có ROAS trung bình cao hơn (7.69)</li>
+                            <li>Chiến dịch sử dụng <strong>Tối đa Doanh thu Tối ưu ROAS</strong> có hiệu quả không ổn định</li>
+                            <li>Chiến dịch có hiệu quả tốt nhất sử dụng phương thức <strong>Giá thầu Thủ công</strong></li>
+                            <li>Các chiến dịch tự động nên được giám sát chặt chẽ hơn hoặc chuyển sang điều chỉnh thủ công</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phát hiện và phân tích vấn đề -->
+        <div class="section">
+            <h2 class="section-title text-2xl font-bold">4. Phát Hiện Vấn Đề Tồn Đọng</h2>
+            
+            <div class="problem-item">
+                <h3 class="text-xl font-bold text-red-600 mb-2">1. Tỷ lệ click (CTR) thấp ở nhiều chiến dịch</h3>
+                <p class="mb-3">Nhiều chiến dịch có tỷ lệ click dưới 2%, đặc biệt là các chiến dịch sản phẩm áo sơ mi và chân váy voan.</p>
+                <div class="mt-2">
+                    <p class="font-semibold">Nguyên nhân có thể:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-1">
+                        <li>Hình ảnh quảng cáo không đủ hấp dẫn hoặc không nổi bật</li>
+                        <li>Tiêu đề quảng cáo quá dài và không truyền tải được điểm đặc biệt của sản phẩm</li>
+                        <li>Định vị từ khóa không phù hợp với nhu cầu tìm kiếm của người dùng</li>
+                        <li>Nhóm đối tượng mục tiêu không chính xác</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-item">
+                <h3 class="text-xl font-bold text-red-600 mb-2">2. Tỷ lệ chuyển đổi thấp ở nhiều chiến dịch</h3>
+                <p class="mb-3">Nhiều chiến dịch có tỷ lệ chuyển đổi dưới 1% dù đã tiêu tốn ngân sách đáng kể.</p>
+                <div class="mt-2">
+                    <p class="font-semibold">Nguyên nhân có thể:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-1">
+                        <li>Trang sản phẩm thiếu thông tin chi tiết hoặc hình ảnh chất lượng</li>
+                        <li>Giá sản phẩm không cạnh tranh trên thị trường</li>
+                        <li>Đánh giá sản phẩm thấp hoặc không có đủ đánh giá để tạo niềm tin</li>
+                        <li>Trải nghiệm mua hàng không thuận tiện, thiếu thông tin về kích thước, chất liệu</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-item">
+                <h3 class="text-xl font-bold text-red-600 mb-2">3. ACOS cao ở nhiều chiến dịch</h3>
+                <p class="mb-3">Một số chiến dịch có ACOS (Chi phí quảng cáo trên doanh thu) rất cao, trên 30%, thậm chí lên đến 60-90%.</p>
+                <div class="mt-2">
+                    <p class="font-semibold">Nguyên nhân có thể:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-1">
+                        <li>Giá thầu quá cao so với giá trị sản phẩm</li>
+                        <li>Chọn từ khóa quá cạnh tranh với chi phí click cao</li>
+                        <li>Chiến dịch không được tối ưu và điều chỉnh thường xuyên</li>
+                        <li>Thiếu chiến lược quảng cáo rõ ràng dựa trên phân tích dữ liệu</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-item">
+                <h3 class="text-xl font-bold text-red-600 mb-2">4. Ngân sách phân bổ không hợp lý</h3>
+                <p class="mb-3">Nhiều chiến dịch hiệu quả thấp vẫn được đầu tư ngân sách đáng kể, trong khi các chiến dịch hiệu quả chưa được mở rộng.</p>
+                <div class="mt-2">
+                    <p class="font-semibold">Nguyên nhân có thể:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-1">
+                        <li>Thiếu quy trình đánh giá và điều chỉnh ngân sách định kỳ</li>
+                        <li>Không có KPI rõ ràng cho từng chiến dịch quảng cáo</li>
+                        <li>Quyết định dựa trên cảm tính thay vì phân tích dữ liệu</li>
+                        <li>Thiếu chiến lược tổng thể cho danh mục sản phẩm</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Đề xuất giải pháp -->
+        <div class="section">
+            <h2 class="section-title text-2xl font-bold">5. Giải Pháp Đề Xuất</h2>
+            
+            <div class="recommendation-item">
+                <h3 class="text-xl font-bold text-green-600 mb-2">1. Tối ưu hóa chiến dịch hiệu quả cao</h3>
+                <div class="mt-2">
+                    <p class="font-semibold mb-2">Chiến lược thực hiện:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-2">
+                        <li>Tăng ngân sách cho chiến dịch "Chân váy Len maxi Lông thỏ" có ROAS 32.00</li>
+                        <li>Mở rộng các từ khóa liên quan đến sản phẩm này để tiếp cận nhiều khách hàng hơn</li>
+                        <li>Tạo các biến thể quảng cáo cho sản phẩm này (A/B testing) để tìm ra định dạng tối ưu nhất</li>
+                        <li>Phân tích đối tượng mua hàng của sản phẩm này để tìm kiếm insight và áp dụng cho các sản phẩm khác</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation-item">
+                <h3 class="text-xl font-bold text-green-600 mb-2">2. Cải thiện tỷ lệ click (CTR)</h3>
+                <div class="mt-2">
+                    <p class="font-semibold mb-2">Chiến lược thực hiện:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-2">
+                        <li>Rút ngắn và tối ưu tiêu đề quảng cáo, tập trung vào lợi ích sản phẩm</li>
+                        <li>Sử dụng hình ảnh sản phẩm chất lượng cao với người mẫu thực tế</li>
+                        <li>Thêm từ khóa "hot" vào tiêu đề như: "Mẫu mới 2025", "Bán chạy", "Limited edition"</li>
+                        <li>Tập trung vào các từ khóa có tính chuyển đổi cao thay vì từ khóa quá chung chung</li>
+                        <li>Thử nghiệm các định dạng tiêu đề khác nhau để tìm ra mẫu hiệu quả nhất</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation-item">
+                <h3 class="text-xl font-bold text-green-600 mb-2">3. Nâng cao tỷ lệ chuyển đổi</h3>
+                <div class="mt-2">
+                    <p class="font-semibold mb-2">Chiến lược thực hiện:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-2">
+                        <li>Cải thiện trang sản phẩm với mô tả chi tiết, bảng size cụ thể và nhiều hình ảnh thực tế</li>
+                        <li>Khuyến khích đánh giá từ khách hàng bằng các ưu đãi sau mua hàng</li>
+                        <li>Tạo bộ sưu tập sản phẩm (bundle) để tăng giá trị đơn hàng</li>
+                        <li>Áp dụng flash sale hoặc khuyến mãi riêng cho sản phẩm có hiệu suất kém</li>
+                        <li>Thêm video sản phẩm để người mua có cái nhìn trực quan hơn về chất lượng</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation-item">
+                <h3 class="text-xl font-bold text-green-600 mb-2">4. Tối ưu hóa chi phí quảng cáo</h3>
+                <div class="mt-2">
+                    <p class="font-semibold mb-2">Chiến lược thực hiện:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-2">
+                        <li>Dừng ngay các chiến dịch có ROAS dưới 1.5 và ACOS trên 50%</li>
+                        <li>Chuyển từ "Giá thầu Tự động" sang "Giá thầu Thủ công" để kiểm soát chi phí tốt hơn</li>
+                        <li>Thiết lập ngưỡng CPC tối đa dựa trên giá trị sản phẩm (không quá 5% giá bán)</li>
+                        <li>Áp dụng lịch quảng cáo thông minh: tăng ngân sách vào giờ cao điểm, giảm vào thời gian thấp điểm</li>
+                        <li>Phân bổ lại ngân sách theo hiệu suất: 60% cho chiến dịch hiệu quả cao, 30% cho chiến dịch trung bình, 10% cho thử nghiệm</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendation-item">
+                <h3 class="text-xl font-bold text-green-600 mb-2">5. Chiến lược phát triển dài hạn</h3>
+                <div class="mt-2">
+                    <p class="font-semibold mb-2">Đề xuất thực hiện:</p>
+                    <ul class="list-disc list-inside mt-1 space-y-2">
+                        <li>Xây dựng lịch đánh giá hiệu suất quảng cáo hàng tuần để kịp thời điều chỉnh</li>
+                        <li>Tập trung vào các sản phẩm "best seller" có tỷ lệ chuyển đổi cao (như chân váy len maxi)</li>
+                        <li>Phát triển thêm sản phẩm tương tự dựa trên insight từ sản phẩm bán chạy</li>
+                        <li>Tận dụng công cụ quảng cáo shop để tăng nhận diện thương hiệu</li>
+                        <li>Thiết lập KPI cụ thể cho từng loại chiến dịch: ROAS tối thiểu 3.0, CTR tối thiểu 2%, ACOS tối đa 30%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kết luận -->
+        <div class="section">
+            <h2 class="section-title text-2xl font-bold">6. Kết Luận</h2>
+            
+            <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                <p class="mb-3">Từ phân tích chi tiết về hiệu suất quảng cáo của LanPuPu_Boutique trong Q1/2025, có thể thấy tiềm năng phát triển rất lớn nếu tối ưu hóa đúng cách.</p>
+                
+                <p class="mb-3">Chiến dịch quảng cáo "Chân váy Len maxi Lông thỏ" đã chứng minh rằng khi sản phẩm phù hợp với thị trường, được quảng cáo đúng cách, có thể mang lại hiệu quả vượt trội (ROAS 32.00). Đây nên là mẫu hình để phát triển các chiến dịch khác.</p>
+                
+                <p class="mb-3">Tuy nhiên, cửa hàng đang gặp phải vấn đề với nhiều chiến dịch có hiệu suất kém, đặc biệt là nhóm sản phẩm áo sơ mi và một số mẫu váy. Cần nhanh chóng điều chỉnh hoặc dừng các chiến dịch này để giảm thiểu lãng phí ngân sách.</p>
+                
+                <p class="mb-3">Với việc áp dụng các giải pháp đề xuất, LanPuPu_Boutique có thể cải thiện đáng kể hiệu quả quảng cáo, dự kiến có thể tăng ROAS trung bình lên ít nhất 20% và giảm ACOS xuống dưới 15% trong quý tới.</p>
+                
+                <p>Khuyến nghị tiếp theo là phát triển kế hoạch quảng cáo chi tiết cho Q2/2025 với trọng tâm là mở rộng các sản phẩm thế mạnh (chân váy len) và từng bước cải thiện hiệu suất các nhóm sản phẩm còn lại.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Biểu đồ phân bổ ngân sách theo loại quảng cáo
+        const adTypeCtx = document.getElementById('adTypeChart').getContext('2d');
+        const adTypeChart = new Chart(adTypeCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Quảng cáo Shop', 'Quảng cáo Sản phẩm'],
+                datasets: [{
+                    label: 'Chi phí quảng cáo (VNĐ)',
+                    data: [1330818, 5889183],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.label || '';
+                                let value = context.raw || 0;
+                                let sum = context.dataset.data.reduce((a, b) => a + b, 0);
+                                let percentage = Math.round((value / sum) * 100);
+                                return label + ': ' + value.toLocaleString() + ' VNĐ (' + percentage + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Biểu đồ tỷ lệ chuyển đổi theo chiến dịch
+        const conversionCtx = document.getElementById('conversionChart').getContext('2d');
+        const conversionChart = new Chart(conversionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Chân váy Len maxi', 'Quảng cáo Shop', 'Chân váy voan', 'Váy lưới nối bánh', 'Áo sơ mi tay dài'],
+                datasets: [{
+                    label: 'Tỷ lệ chuyển đổi (%)',
+                    data: [6.77, 0.45, 0.64, 0.87, 0.00],
+                    backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Tỷ lệ chuyển đổi (%)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Biểu đồ ROAS theo chiến dịch
+        const roasCtx = document.getElementById('roasChart').getContext('2d');
+        const roasChart = new Chart(roasCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Chân váy Len maxi', 'Quảng cáo Shop', 'Chân váy voan', 'Váy lưới nối bánh', 'Áo sơ mi tay dài'],
+                datasets: [{
+                    label: 'ROAS',
+                    data: [32.00, 5.18, 1.60, 2.60, 0.00],
+                    backgroundColor: 'rgba(153, 102, 255, 0.7)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'ROAS (Tỷ lệ doanh thu/chi phí)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Biểu đồ hiệu quả theo phương thức đấu thầu
+        const biddingMethodCtx = document.getElementById('biddingMethodChart').getContext('2d');
+        const biddingMethodChart = new Chart(biddingMethodCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Giá thầu Thủ công', 'Giá thầu Tự động', 'Tối ưu ROAS bởi Hệ thống'],
+                datasets: [{
+                    label: 'ROAS trung bình',
+                    data: [7.69, 5.18, 5.34],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(255, 205, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 205, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'ROAS trung bình'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
